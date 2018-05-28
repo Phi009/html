@@ -1,0 +1,286 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+  <title>Experimental
+  </title>
+</head>
+<body onload="startTime()">
+
+
+	<p>What is the result of this?</p>
+
+	<p id="jScriptTest"> </p>
+
+	<p id="whileTest"> </p>
+
+	<p id="misc"> </p>
+
+	<ul>
+    <li>To learn HTML</li>
+    <li>
+        To show off
+        <ol>
+            <li>To my boss</li>
+            <li>To my friends</li>
+            <li>To my cat</li>
+            <li>To the little talking duck in my brain</li>
+        </ol>
+    </li>
+    <li>Because I've fallen in love with my computer and want to give her some HTML loving.</li>
+</ul>
+
+	<script>
+		var z = 40;
+	</script>
+
+  <script>
+ 	// Your JavaScript goes here!
+
+ 	var x = 4;
+ 	var y = 10;
+
+ 	var result = "Hello, World! I am feeling like " + (z+y +30) + " years old";
+    
+    if (!isNaN(y)) {
+    document.getElementById("jScriptTest").innerHTML = result;
+	}
+
+  </script>
+
+  <script>
+
+  		var aNumber = 2;
+  		var txt = "";
+  		var order = 0;
+		while (aNumber < 100){
+			aNumber = aNumber + aNumber;
+			order ++;
+			var suffix;
+
+			if (order==1){
+				suffix = "st";
+			} else if (order==2){
+				suffix = "nd";
+			} else if (order==3){
+				suffix ="rd";
+			} else {
+				suffix ="th";
+			}
+
+
+			txt = txt + order+suffix + " result: " + aNumber + "<br>";
+		}	
+
+		document.getElementById("whileTest").innerHTML = txt;
+
+	</script>
+
+	<script>
+
+		const myBirthday = '17.04.84';
+
+		function getType(argument){
+			
+			let result = typeof argument;
+			return result;
+
+		}
+
+		let admin, name;
+
+		name = "John";
+
+		admin = name;
+		
+		var practice = `${admin}'s Birthday is ${myBirthday} which is a ${getType(myBirthday)}`;
+
+		let thisPlanet = "Earth";
+		let thisVisitor;
+
+		document.getElementById("misc").innerHTML = practice;
+
+		let firstNum = 50;
+		let secondNum = 30; 
+
+		console.log(firstNum + secondNum); 
+
+		let solution = (4+6+9) / 77;
+
+		document.write(solution);
+
+
+	</script>
+
+	<script>
+		let a = 10;
+
+		console.log(a);
+
+		a = 9 * a;
+
+		let b = 7 * a;
+
+		console.log(b);
+
+		const MAX = 57;
+		let actual = MAX - 13;
+
+		let percentage = actual / MAX;
+
+		var one = 'Hello, ';
+		var two = 'how are you?';
+		var joined = one + two;
+		let type = typeof joined;
+
+	</script>
+
+	<p id="demo" onclick = "myFunction()" > Here's an interesting trick. Click me <br/> for something hidden</p>
+
+	<script>
+		function myFunction(){
+			document.getElementById("demo").style.color = "red";
+			document.getElementById("demo").innerHTML = "This changes to red";
+
+		}
+	</script>
+
+
+
+    <p id="timeGreet" onclick="timeTransform()">The time is <span id="txt"></span>. Click for a greeting</p> 
+	
+	<script>
+
+	function startTime() {
+   		 var today = new Date();
+   		 var h = today.getHours();
+   		 var m = today.getMinutes();
+    	var s = today.getSeconds();
+    	m = checkTime(m);
+    	s = checkTime(s);
+    	document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+    	var t = setTimeout(startTime, 500);
+		}
+		function checkTime(i) {
+    		if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    		return i;
+		}
+
+		function timeTransform(){
+			var greeting;
+			var today = new Date();
+			var hours = today.getHours();
+
+			if (hours <= 12 && hours >=6){
+				greeting ="Good Morning!";
+			} else if (hours>12 && hours <18){
+				greeting = "Good Afternoon!";
+			} else if (hours>=18 && hours <=23){
+				greeting ="Good Evening";
+			} else {
+				greeting = "What are you doing in the early hours?";
+			}
+
+			document.getElementById("timeGreet").innerHTML = greeting;
+		}
+
+	</script>
+	<p>
+		<form onsubmit="getGrade()" method="post" >
+			Enter grade here: <input type = "text" name="grade" id="gradeInput">
+			<input type="submit" value="Submit"> 
+
+		</form>
+
+	</p>
+
+	<p>Your Grade is <span id="gradeResult"></span></p>
+
+	<script>
+
+		function getGrade(){
+
+			let gResult = document.getElementById("gradeInput").value;
+
+			let grade;
+
+			switch (true) {
+				case gResult >= 90:
+				grade = "A";
+				break;
+
+				case gResult >= 80:
+				grade = "B";
+				break;
+				
+				case gResult >= 70:
+				grade = "C";
+				break;
+
+				case gResult >= 60:
+				grade = "D";
+				break;
+
+				case gResult >= 0:
+				grade = "F";
+				break;
+
+				default: 
+				grade = "Not valid!";
+			}
+
+				document.getElementById("gradeResult").innerHTML = grade;
+
+		}
+
+
+	
+
+	</script>
+
+	<p id ="monthPara"></p>
+
+	<script>
+		const month = new Date().getMonth();
+
+		var season;
+
+		switch (month) {
+  		case 11:
+    	case 0:
+    	case 1:
+
+        season = "Winter";
+        break;
+
+    	case 2:
+    	case 3:
+    	case 4:
+        
+        season = "Spring";
+        break;
+    
+    	case 5:
+    	case 6:
+    	case 7:
+
+        season = "Summer";
+        break;
+  
+    	case 8:
+    	case 9:
+    	case 10:
+
+        season = "Autumm";
+        break;
+    	default:
+
+        console.log("Something went wrong.");
+
+    }
+
+    document.getElementById("monthPara").innerHTML = season;
+
+	</script>
+
+</body>
+</html>
